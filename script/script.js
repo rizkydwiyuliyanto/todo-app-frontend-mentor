@@ -23,7 +23,7 @@
           div.setAttribute("data-id", `${x.id}`);
           div.classList.add("background", "mylist", "fs-normal", "rounded-0", "d-flex", "px-3", "justify-content-start");
           div.innerHTML = `
-            <div data-id=${x.id} onclick="setComplete(${x.completed}, ${x.id})" style="border: 2px solid grey; width: 30px; height: 30px;overflow: hidden;" class="${x.completed ? 'check-background' : ''}my-auto rounded-5 d-flex justify-content-center align-items-center me-3">
+            <div data-id=${x.id} onclick="setComplete(${x.completed}, ${x.id})" style="border: 2px solid grey; width: 30px; height: 30px;overflow: hidden;" class="${x.completed ? 'check-background' : ''} my-auto rounded-5 d-flex justify-content-center align-items-center me-3">
               ${x.completed ? '<img src="./images/icon-check.svg" width="20">' : ''}
             </div>
             <div class="task">
