@@ -129,10 +129,10 @@
       }
   
       const handlesubmit = (event) => {
+        event.preventDefault()
         const idTasks = document.getElementById("input-task");
         const check = document.querySelector(".check");
         let isComplete = check.getAttribute("data-complete");
-        event.preventDefault()
         let task = {
           id: tasks.length + 1,
           name: idTasks.value,
