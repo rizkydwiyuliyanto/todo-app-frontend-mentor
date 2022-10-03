@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="./style/style.css">
+  <title>Frontend Mentor | Todo app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body class="body">
+  <section>
+    <img style="z-index: -5;" src="./images/bg-desktop-light.jpg" class="col-12 position-fixed d-md-block d-none">
+    <img style="z-index: -5;" src="./images/bg-mobile-light.jpg" class="col-12 position-fixed d-md-none d-block">
+    <div
+      class="mycontainer pt-md-0 pt-4 vh-100 d-flex flex-column align-items-center justify-content-start justify-content-md-center">
+      <div class="col-xl-6 col-xl-5 col-md-9 col-12 d-xl-flex flex-xl-column">
+        <div class="mb-xl-3 mb-4 d-flex justify-content-between align-items-center">
+          <h1 class="pt-2 header fs-huge m-0 d-flex">
+            T O D O
+          </h1>
+          <img id="mode" src="./images/icon-moon.svg" width="40">
+        </div>
+
+        <form onsubmit="handlesubmit(event)" class="fs-normal mb-xxl-5 mb-xl-3 mb-4">
+          <div class="background overflow-hidden  rounded-3 ps-3 d-flex align-items-center d-flex justify-content-start">
+            <div data-complete="0" onclick="setCompleteTask()"
+              style="border: 2px solid grey; width: 30px; height: 30px;"
+              class="check justify-content-center align-items-center rounded-5 d-flex me-3"></div>
+            <input id="input-task" required class="py-3" placeholder="Create a new todo">
+          </div>
+        </form>
+      </div>
+
+      <div class="position-relative mb-xl-5 h-md-50 h-350px col-xl-6 col-md-9 col-12 d-flex justify-content-between">
+        <div style="overflow: hidden;" class="background rounded-3 col-12">
+          <div id="mylistParent">
+          </div>
+
+          <div class="fs-small info d-md-flex d-none col-12 setting justify-content-between align-items-center px-4">
+            <div>
+              <span class="total">
+
+              </span>
+              <!-- Add dynamic number -->
+              <span>
+                items left
+              </span>
+            </div>
+            <div class="d-flex  justify-content-end">
+              <span data-option="all" onclick="option('all')" class="option">
+                All
+              </span>
+              <span data-option="active" onclick="option('active')" class="mx-3 option">
+                Active
+              </span>
+              <span data-option="completed" onclick="option('completed')" class="option">
+                Completed
+              </span>
+            </div>
+            <span class="clear" onclick="clearCompleted()">
+              Clear Completed
+            </span>
+          </div>
+
+          <div
+            class="fs-small fw-bold d-md-none d-flex col-12 flex-column setting justify-content-between align-items-center px-4">
+            <div class="background d-flex justify-content-between mb-4 col-12 position-absolute p-3">
+              <div>
+                <span class="total">
+
+                </span>
+                <!-- Add dynamic number -->
+                <span>
+                  items left
+                </span>
+              </div>
+              <span class="clear" onclick="clearCompleted()">
+                Clear Completed
+              </span>
+            </div>
+            <div style="bottom: -120px" class="d-flex justify-content-center p-3 background position-absolute col-12">
+              <span data-option="all" class="option">
+                All
+              </span>
+              <span data-option="active" class="mx-3" class="option">
+                Active
+              </span>
+              <span data-option="completed" class="option">
+                Completed
+              </span>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    <p style="width:100%; text-align: center;bottom: 75px" class="fs-normal position-relative">
+      Drag and drop to reorder list
+    </p>
+    <div class="attribution text-center">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Rizky Dwi Yuliyanto</a>.
+    </div>
+
+  </section>
+  <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+ <script src="./script/script.js"></script>
+ <script>
+  let mode = document.getElementById("mode");
+  mode.onclick = () => {
+    document.body.classList.toggle("dark-mode");
+    console.log(document.body.classList.contains("dark-mode"))
+    let url;
+    document.body.classList.contains("dark-mode")?url="./images/icon-sun.svg":url="./images/icon-moon.svg"
+    mode.src = url;
+  }
+ </script>
+</body>
+
+</html>

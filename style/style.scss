@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Open+Sans&display=swap');
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/utilities";
+
+:root {
+    --fs-huge: 4rem;
+    --fs-large: 2.5rem;
+    --fs-medium: 2rem;
+    --fs-normal: 1.5rem;
+    --fs-small:1.2rem;
+    @media screen and (max-width: 1439px) {
+        --fs-huge: 2.5rem;
+        --fs-large: 2rem;
+        --fs-medium: 1.5rem;
+        --fs-normal: 1rem;
+        --fs-small: 0.8rem;
+    }
+    @media screen and (max-width: 799px) {
+        --fs-huge: 2.2rem;
+    }
+    --background: #FAFAFA;
+    --primary-color: #FFFFFF;
+    --secondary-color: #565468;
+    --hover: hsl(235, 19%, 35%);
+    --info: #A4A4AC;
+}
+
+.dark-mode {
+    --background: #181824;
+    --hover: hsl(236, 33%, 92%);
+    --primary-color: #25273C;
+    --secondary-color: #B8BAD1;
+}
+
+.info {
+    color: var(--info);
+}
+
+#input-task {
+    outline:none;
+    border: none;
+    width: 90%;
+    background: none;
+    color: var(--secondary-color);
+}
+
+.check-background {
+    background-image: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+}
+
+.fs-huge {
+    font-size: var(--fs-huge);
+}
+
+.fs-large {
+    font-size: var(--fs-large);
+}
+
+.fs-medium {
+    font-size: var(--fs-medium);
+}
+
+.fs-normal {
+    font-size: var(--fs-normal);
+}
+
+.fs-small {
+    font-size: var(--fs-small);
+}
+
+.body {
+    background-color: var(--background)
+}
+
+* {
+    padding:0; margin:0;
+    box-sizing: border-box;
+}
+
+.header {
+    color: #FFFFFF;
+}
+
+section {
+    font-family: "Josefin Sans";
+}
+
+
+
+.mycontainer {
+    max-width: 1440px;
+    margin: 0 auto;
+    color: var(--secondary-color);
+    @media screen and (max-width: 1439px) {
+        width: 80%;
+    }
+}
+#mylistParent {
+    border: 1px solid unset;
+    height: calc(100% - 65px);
+    overflow-y: scroll;
+    .mylist {
+        border-bottom: 2px solid grey;
+        .task {
+
+            width: 80%;
+            padding: 1rem 0;
+            overflow-x: scroll;
+        }
+    }
+    @media screen and (max-width: 1439px) {
+        height: calc(100% - 50px);
+    }
+    @media screen and (max-width: 799px) {
+        height: 100%;
+    }
+}
+.setting{
+    height: 65px;
+    border-top: 2px solid grey;
+    position: absolute; bottom:0;
+    @media screen and (max-width: 1439px) {
+        height: 50px;
+    }
+    @media screen and (max-width: 799px) {
+        height: 0px;
+    }
+    
+}
+
+.option-visited {
+    color: hsl(220, 98%, 61%);
+}
+
+.option-notVisited {
+    color: var(--info);
+}
+
+.option {
+    
+    &:hover {
+        cursor: pointer;
+        color: var(--hover)
+    }
+}
+
+.clear {
+    &:hover{
+        cursor: pointer;
+        color: var(--hover)
+
+    }
+}
+
+.background {
+    background-color: var(--primary-color);
+}
+
+$utilities: (
+    "height" : (
+        property: height,
+        class: h,
+        responsive: true,
+        values: (
+          25: 25%,
+          50: 50%,
+          75: 75%,
+          100: 100%,
+          350px: 300px,
+          400px: 400px,
+          auto: auto
+        )
+  
+    )
+);
+
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss"
