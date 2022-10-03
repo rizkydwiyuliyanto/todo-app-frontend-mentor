@@ -98,16 +98,17 @@ section {
     }
 }
 #mylistParent {
-    border: 1px solid unset;
     height: calc(100% - 65px);
     overflow-y: scroll;
     .mylist {
         border-bottom: 2px solid grey;
         .task {
-
-            width: 80%;
+            width: 75%;
             padding: 1rem 0;
             overflow-x: scroll;
+            &:hover{
+                cursor: default;
+            }
         }
     }
     @media screen and (max-width: 1439px) {
@@ -168,7 +169,7 @@ $utilities: (
           50: 50%,
           75: 75%,
           100: 100%,
-          350px: 300px,
+          300px: 300px,
           400px: 400px,
           auto: auto
         )
