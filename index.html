@@ -24,8 +24,14 @@
 
 <body class="body">
   <section>
-    <img style="z-index: -5;" src="./images/bg-desktop-light.jpg" class="col-12 position-fixed d-md-block d-none">
-    <img style="z-index: -5;" src="./images/bg-mobile-light.jpg" class="col-12 position-fixed d-md-none d-block">
+    <div id="bg-image-dark" class="d-none">
+      <img style="z-index: -5;" src="./images/bg-desktop-dark.jpg" class="col-12 position-fixed d-md-block d-none">
+      <img style="z-index: -5;" src="./images/bg-mobile-dark.jpg" class="col-12 position-fixed d-md-none d-block">
+    </div>
+    <div id="bg-image-light" class="d-block">
+      <img style="z-index: -5;" src="./images/bg-desktop-light.jpg" class="col-12 position-fixed d-md-block d-none">
+      <img style="z-index: -5;" src="./images/bg-mobile-light.jpg" class="col-12 position-fixed d-md-none d-block">
+    </div>
     <div
       class="mycontainer pt-md-0 pt-4 vh-100 d-flex flex-column align-items-center justify-content-start justify-content-md-center">
       <div class="col-xl-6 col-xl-5 col-md-9 col-12 d-xl-flex flex-xl-column">
@@ -120,15 +126,24 @@
     </div>
 
   </section>
-  <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+  <script src="//SortableJS.github.io/Sortable/Sortable.js"></script>
  <script src="./script/script.js"></script>
  <script>
   let mode = document.getElementById("mode");
+  const bgDark = document.getElementById("bg-image-dark");
+  const bgLight = document.getElementById("bg-image-light")
   mode.onclick = () => {
     document.body.classList.toggle("dark-mode");
-    console.log(document.body.classList.contains("dark-mode"))
     let url;
-    document.body.classList.contains("dark-mode")?url="./images/icon-sun.svg":url="./images/icon-moon.svg"
+    if (document.body.classList.contains("dark-mode")){
+      url="./images/icon-sun.svg";
+      bgLight.classList.replace("d-block", "d-none");
+      bgDark.classList.replace("d-none", "d-block");
+    }else {
+      url="./images/icon-moon.svg";
+      bgLight.classList.replace("d-none", "d-block");
+      bgDark.classList.replace("d-block", "d-none");
+    }
     mode.src = url;
   }
  </script>
